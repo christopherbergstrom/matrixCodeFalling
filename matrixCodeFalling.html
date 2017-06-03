@@ -2,8 +2,10 @@
 <html>
   <head>
     <style>
-      body
+      #test
       {
+        width: 200px;
+        height: 200px;
         background-color: black;
         overflow-y: hidden;
       }
@@ -19,9 +21,8 @@
     <script>
       $(document).ready(function()
       {
-        var wide = $("body").innerWidth();
-        var tall = window.innerHeight;
-        console.log(tall);
+        var wide = $("#test").innerWidth();
+        var tall = $("#test").innerHeight();
         window.setInterval(function()
         {
           // where the div will go on the x-axis
@@ -29,7 +30,7 @@
           // what number it will be
           var num = Math.floor(Math.random()*9);
           var div = $("<div class='num'>"+num+"</div>");
-          $("body").append(div);
+          $("#test").append(div);
           $(div).css("left", where+"px");
           // starting point
           $(div).css("top", 0+"px");
@@ -37,10 +38,10 @@
           $(div).animate({
             top:tall
           }, 1500, "linear");
-          // $(div).hover(function()
-          // {
-          //   $(div).css("color", "red");
-          // })
+          $(div).hover(function()
+          {
+            $(div).css("color", "red");
+          })
           setTimeout(function()
           {
             $(div).remove();
@@ -50,5 +51,6 @@
     </script>
   </head>
   <body>
+    <div id="test"></div>
   </body>
 </html>
