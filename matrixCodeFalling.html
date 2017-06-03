@@ -13,7 +13,6 @@
         top: 0;
         color: #00ff00;
         font-family: Monospace;
-        transition: 1.5s linear;
       }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,19 +24,27 @@
         console.log(tall);
         window.setInterval(function()
         {
+          // where the div will go on the x-axis
           var where = Math.floor(Math.random()*wide);
+          // what number it will be
           var num = Math.floor(Math.random()*9);
           var div = $("<div class='num'>"+num+"</div>");
           $("body").append(div);
-          // console.log(div);
-          // $(div).css("color", "pink");
           $(div).css("left", where+"px");
+          // starting point
           $(div).css("top", 0+"px");
-          $(div).animate({top:tall});
+          // style it to here
+          $(div).animate({
+            top:tall
+          }, 1500, "linear");
+          // $(div).hover(function()
+          // {
+          //   $(div).css("color", "red");
+          // })
           setTimeout(function()
           {
             $(div).remove();
-          }, 2000);
+          }, 1500);
         }, 1);
       });
     </script>
